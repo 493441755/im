@@ -1,6 +1,7 @@
 'use strict'
 
 var https = require('https');
+var http = require('http');
 var fs = require('fs');
 
 var express = require('express');
@@ -53,19 +54,21 @@ app.post('/upload', upload.single('file'), function(req, res, next){
 app.use(serveIndex('./public'));
 app.use(express.static('./public'));
 
-
+/*
 var options = {
 	key : fs.readFileSync('./cert/1557605_www.learningrtc.cn.key'),
 	cert: fs.readFileSync('./cert/1557605_www.learningrtc.cn.pem')
 }
-
+*/
 //https server
-var https_server = https.createServer(options, app);
-https.listen(4443, '0.0.0.0');
+//var https_server = https.createServer(options, app);
+var http_server = http.createServer(app);
+http_server.listen(81,'0.0.0.0');
+//https.listen(4443, '0.0.0.0');
 
 //bind socket.io with https_server
-//var io = socketIo.listen(http_server);
-var sockio = socketIo.listen(https_server);
+//var sockio = socketIo.listen(https_server);
+var sockio = socketIo.listen(http_server);
 
 //connection
 sockio.sockets.on('connection', (socket)=>{
