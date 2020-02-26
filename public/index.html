@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<meta charset="UTF-8">
+<title>龙哥聊天</title>
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="layui/dist/css/layui.css"  media="all">
+
+<link rel="stylesheet" href="css/reset.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="container">
+        <div class="left">
+            <div class="top">
+                <input type="text" placeholder="Search" />
+                <a href="javascript:;" class="search"></a>
+            </div>
+            <ul class="people">
+                <li class="person" data-chat="person1">
+                    <img src="img/thomas.jpg" alt="" />
+                    <span class="name">Thomas Bangalter</span>
+                    <span class="time">2:09 PM</span>
+                    <span class="preview">I was wondering...</span>
+                </li>
+                <li class="person" data-chat="person2">
+                    <img src="img/dog.png" alt="" />
+                    <span class="name">Dog Woofson</span>
+                    <span class="time">1:44 PM</span>
+                    <span class="preview">I've forgotten how it felt before</span>
+                </li>
+                <li class="person" data-chat="person3">
+                    <img src="img/louis-ck.jpeg" alt="" />
+                    <span class="name">Louis CK</span>
+                    <span class="time">2:09 PM</span>
+                    <span class="preview">But we’re probably gonna need a new carpet.</span>
+                </li>
+                <li class="person" data-chat="person4">
+                    <img src="img/bo-jackson.jpg" alt="" />
+                    <span class="name">Bo Jackson</span>
+                    <span class="time">2:09 PM</span>
+                    <span class="preview">It’s not that bad...</span>
+                </li>
+                <li class="person" data-chat="person5">
+                    <img src="img/michael-jordan.jpg" alt="" />
+                    <span class="name">Michael Jordan</span>
+                    <span class="time">2:09 PM</span>
+                    <span class="preview">Wasup for the third time like is you blind bitch</span>
+                </li>
+                <li class="person" data-chat="person6">
+                    <img src="img/drake.jpg" alt="" />
+                    <span class="name">Drake</span>
+                    <span class="time">2:09 PM</span>
+                    <span class="preview">howdoyoudoaspace</span>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="top"><span>To: <span class="name">Dog Woofson</span></span></div>
+            <div class="chat" data-chat="person1">
+                <div class="conversation-start">
+                    <span>Today, 6:48 AM</span>
+                </div>
+               
+            </div>
+            <div class="chat" data-chat="person2">
+                <div class="conversation-start">
+                    <span>Today, 5:38 PM</span>
+                </div>
+                
+            </div>
+            <div class="chat" data-chat="person3">
+                <div class="conversation-start">
+                    <span>Today, 3:38 AM</span>
+                </div>
+                
+            </div>
+            <div class="chat" data-chat="person4">
+                <div class="conversation-start">
+                    <span>Yesterday, 4:20 PM</span>
+                </div>
+                
+            </div>
+            <div class="chat" data-chat="person5">
+                <div class="conversation-start">
+                    <span>Today, 6:28 AM</span>
+                </div>
+                
+
+            </div>
+            <div class="chat" data-chat="person6">
+                <div class="conversation-start">
+                    <span>Monday, 1:27 PM</span>
+                </div>
+                
+            </div>
+            <div class="write">
+                <a href="javascript:;" class="write-link attach"></a>
+                <input type="text"  id="sendMessage"/>
+                <a href="javascript:;" class="write-link call"></a>
+                <a href="javascript:;" class="write-link send"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="call_template">
+<div class="call_wrapper">
+    <div class="call_container">
+        <video class="localvideo" autoplay playsinline muted></video>
+        <video class="remotevideo" autoplay playsinline></video>
+        <div class="call_tool">
+
+        <a href="javascript:void(0);" >
+        <img src="img/jinyan.svg" />
+        </a>
+        <a href="javascript:void(0);" class="hangup">
+        <img src="img/hang_up.svg" />
+        </a>
+    </div>
+    </div>
+</div>
+</script>
+  
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="layui/dist/layui.js" charset="utf-8"></script>
+
+<script  src="js/index.js"></script>
+
+<script>
+    
+</script>
+
+
+
+
+</body>
+
+</html>
