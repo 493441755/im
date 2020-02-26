@@ -107,9 +107,7 @@ sockio.sockets.on('connection', (socket)=>{
 			socket.leave(room);
 			socket.emit('full', room, socket.id);	
 		}
-	 	//socket.to(room).emit('joined', room, socket.id);//除自己之外
-		//io.in(room).emit('joined', room, socket.id)//房间内所有人
-	 	//socket.broadcast.emit('joined', room, socket.id);//除自己，全部站点	
+
 	});
 
 	socket.on('leave', (room)=> {
@@ -124,9 +122,6 @@ sockio.sockets.on('connection', (socket)=>{
 		socket.leave(room);
 		socket.to(room).emit('bye', room, socket.id)//房间内所有人,除自己外
 	 	socket.emit('leaved', room, socket.id);	
-	 	//socket.to(room).emit('joined', room, socket.id);//除自己之外
-		//io.in(room).emit('joined', room, socket.id)//房间内所有人
-	 	//socket.broadcast.emit('joined', room, socket.id);//除自己，全部站点	
 	});
 
 });
