@@ -54,17 +54,17 @@ app.post('/upload', upload.single('file'), function(req, res, next){
 app.use(serveIndex('./public'));
 app.use(express.static('./public'));
 
-/*
+
 var options = {
-	key : fs.readFileSync('./cert/1557605_www.learningrtc.cn.key'),
-	cert: fs.readFileSync('./cert/1557605_www.learningrtc.cn.pem')
+	key : fs.readFileSync('./cert/3545845_link.rongyiapi.com.key'),
+	cert: fs.readFileSync('./cert/3545845_link.rongyiapi.com.pem')
 }
-*/
+
 //https server
-//var https_server = https.createServer(options, app);
+var https_server = https.createServer(options, app);
 var http_server = http.createServer(app);
-http_server.listen(81,'0.0.0.0');
-//https.listen(4443, '0.0.0.0');
+http_server.listen(3000,'0.0.0.0');
+https.listen(443, '0.0.0.0');
 
 //bind socket.io with https_server
 //var sockio = socketIo.listen(https_server);
