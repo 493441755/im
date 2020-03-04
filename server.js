@@ -1,6 +1,7 @@
 'use strict'
 
 var https = require('https');
+var http = require('http');
 var fs = require('fs');
 
 var express = require('express');
@@ -53,19 +54,21 @@ app.post('/upload', upload.single('file'), function(req, res, next){
 app.use(serveIndex('./public'));
 app.use(express.static('./public'));
 
-
+/*
 var options = {
 	key : fs.readFileSync('./cert/1557605_www.learningrtc.cn.key'),
 	cert: fs.readFileSync('./cert/1557605_www.learningrtc.cn.pem')
 }
-
+*/
 //https server
-var https_server = https.createServer(options, app);
-https.listen(4443, '0.0.0.0');
+//var https_server = https.createServer(options, app);
+var http_server = http.createServer(app);
+http_server.listen(81,'0.0.0.0');
+//https.listen(4443, '0.0.0.0');
 
 //bind socket.io with https_server
-//var io = socketIo.listen(http_server);
-var sockio = socketIo.listen(https_server);
+//var sockio = socketIo.listen(https_server);
+var sockio = socketIo.listen(http_server);
 
 //connection
 sockio.sockets.on('connection', (socket)=>{
@@ -104,9 +107,7 @@ sockio.sockets.on('connection', (socket)=>{
 			socket.leave(room);
 			socket.emit('full', room, socket.id);	
 		}
-	 	//socket.to(room).emit('joined', room, socket.id);//除自己之外
-		//io.in(room).emit('joined', room, socket.id)//房间内所有人
-	 	//socket.broadcast.emit('joined', room, socket.id);//除自己，全部站点	
+
 	});
 
 	socket.on('leave', (room)=> {
@@ -121,9 +122,6 @@ sockio.sockets.on('connection', (socket)=>{
 		socket.leave(room);
 		socket.to(room).emit('bye', room, socket.id)//房间内所有人,除自己外
 	 	socket.emit('leaved', room, socket.id);	
-	 	//socket.to(room).emit('joined', room, socket.id);//除自己之外
-		//io.in(room).emit('joined', room, socket.id)//房间内所有人
-	 	//socket.broadcast.emit('joined', room, socket.id);//除自己，全部站点	
 	});
 
 });

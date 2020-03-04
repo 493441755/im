@@ -73,7 +73,6 @@ function btnCallClick() {
     closeBtn: false,
     area: ['80%', '90%'],
     scrollbar: false,
-    skin:'myskin',
     content: callWrapper.innerHTML
   });
   localVideo = document.querySelector(".localvideo");
@@ -86,6 +85,7 @@ function btnCallClick() {
     if (state == 'calling') {
       call();
       hangup.querySelector("img").src = "img/hang_up.svg";
+      localVideo.classList.remove("blur");
       state = 'called';
     } else {
       layer.closeAll();
@@ -143,6 +143,7 @@ socket.on('message', (room, id, data) => {
       state = data.data;
       item.innerHTML = "视频通话";
       btnCallClick();
+      localVideo.classList.add("blur");
     }else if(data.type == 7){
       leave();
       layer.closeAll();
