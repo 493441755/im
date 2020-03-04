@@ -4,7 +4,7 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-COPY ./ /app
+COPY ./app /app
 
 EXPOSE 3000
 EXPOSE 443
