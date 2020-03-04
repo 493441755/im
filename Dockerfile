@@ -11,4 +11,4 @@ EXPOSE 443
 
 RUN npm install
 
-ENTRYPOINT ["node", "socket.js"]
+ENTRYPOINT ["node", "server.js"]
