@@ -1,0 +1,27 @@
+{
+  "name": "im",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duolabmeng6/im.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duolabmeng6/im/issues"
+  },
+  "homepage": "https://github.com/duolabmeng6/im#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "log4js": "^6.1.2",
+    "multer": "^1.4.2",
+    "serve-index": "^1.9.1",
+    "socket.io": "^2.3.0"
+  }
+}
